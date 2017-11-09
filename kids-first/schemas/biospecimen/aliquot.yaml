@@ -1,0 +1,47 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "aliquot"
+title: Aliquot
+type: object
+project: '*'
+category: biospecimen
+description: 
+additionalProperties: false
+
+systemProperties:
+  - id
+  - project
+
+required:
+  - type
+  - sample
+
+uniqueKeys:
+  - [id]
+  - [project.code, submitter_id]
+
+properties:
+  type:
+    enum: [ "aliquot" ]
+  id:
+    $ref: _definitions#/core/id
+  submitter_id:
+    type: string
+    description: "Submitter's aliquot ID"
+  sample:
+    _link: parent
+    type: object
+    oneOf:
+      - required: [id]
+      - required: [submitter_id]
+    properties:
+      id:
+        $ref: sample#/id
+      submitter_id:
+        $ref: sample#/submitter_id
+  project:
+    _link: parent
+    type: object
+    properties:
+      code:
+        $ref: project#/code

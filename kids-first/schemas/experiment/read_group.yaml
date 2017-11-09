@@ -1,0 +1,112 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "read_group"
+title: Sequencing read group from NGS experiment
+type: object
+project: '*'
+category: 'experiement'
+description: 
+additionalProperties: false
+
+systemProperties:
+  - id
+
+required:
+  - type
+  - platform
+  - library_strategy
+  - read_group_id
+  - paired_end
+  - sample
+  - sequencing_file
+
+uniqueKeys:
+  - [id]
+  - [project.code, read_group_id]
+
+properties:
+  type:
+    enum: [ "read_group" ]
+  id:
+    type: string
+  experiement:
+    type: object
+    properties:
+      type:
+        enum: ["NGS Sequencing"]
+      sequencing_center:  # CN in BAM @GR header
+        type: string
+      platform:  # PL in BAM @RG header
+        enum: ['Illumina', 'SOLiD', 'LS454', 'PacBio', 'Ion Torrent', 'Nanopore', 'Complete Genomics']
+      platform_model:  # Illumina HiSeq 2000
+        type: string
+      platform_unit:  # PU in BAM @RG header in Illumina {FLOWCELL_BARCODE}.{LANE}.{SAMPLE_BARCODE}
+        type: string
+      read_group_name:  # ID in BAM @RG header
+        type: string
+      is_paired_end:
+        type: boolean
+      read_length:
+        type: integer
+      insert_size:
+        type: integer
+      sample_barcode:  # only applicable to multiplex sequencing libraries
+        type: string
+      library_name:
+        type: string
+      library_strategy:
+        enum:
+          - "WGS"
+          - "WXS"
+          - "RNA-Seq"
+          - "Bisulfite-Seq"
+          - "ChIP-Seq"
+  sample:
+    _link: parent
+    type: object
+    oneOf:  # Sample ID should match what's in BAM @RG header
+      - required: [aliquot_id]
+      - required: [submitter_sample_id]
+    properties:
+      aliquot_id:
+        type: string
+      submitter_id:
+        type: string
+  sequencing_file:
+    _link: child
+    anyOf:
+      - type: array
+        minItems: 1  # single end
+        maxItems: 2  # paired end
+        uniqueItems: true
+        items:
+          type: object
+          properties:
+            id:
+              type: string
+            size:
+              type: integer
+            md5sum:
+              type: string
+            file_name:
+              type: string
+            file_type:
+              enum: ["FASTQ"]
+      - type: object
+        properties:
+          id:
+            type: string
+          size:
+            type: integer
+          md5sum:
+            type: string
+          file_name:
+            type: string
+          file_type:
+            enum: ["BAM"]
+  project:
+    _parent: true
+    type: object
+    properties:
+      code:
+        type: string

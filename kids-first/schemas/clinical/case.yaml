@@ -1,0 +1,44 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "case"
+title: Case
+type: object
+project: '*'
+category: clinical
+description: 
+additionalProperties: false
+
+systemProperties:  # properties to be managed by the system
+  - id
+
+required:
+  - type
+  - submitter_id
+  - project
+
+uniqueKeys:
+  - [id]
+  - [project.code, submitter_id]
+
+properties:
+  type:
+    enum: [ "case" ]
+  id:
+    $ref: _definitions#/core/id
+  submitter_id:
+    type: string
+    description: "Submitter's case ID"
+  gender:
+    enum: ["female", "male", "unknown", null]
+  family:
+    _link: parent
+    type: object
+    properties:
+      code:
+        $ref: family#/id
+  project:
+    _link: parent
+    type: object
+    properties:
+      code:
+        $ref: project#/code

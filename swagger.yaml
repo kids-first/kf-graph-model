@@ -1,0 +1,39 @@
+swagger: "2.0"
+info:
+  title: Kids First JSON Schema API
+  version: "0.1"
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /:
+    get:
+      tags: ["JSON Schema"]
+      operationId: app.list_schemas
+      responses:
+        200:
+          description: Return list of all JSON schemas
+          schema:
+            type: array
+            items:
+              type: string
+  /{entity}:
+    get:
+      tags: ["JSON Schema"]
+      operationId: app.get_schema
+      parameters:
+        - name: entity
+          type: string
+          in: path
+          required: true
+        - name: raw
+          type: string
+          in: query
+      responses:
+        200:
+          description: Return specified JSON schema
+          schema:
+            type: object
+        400:
+          description: Schema not found

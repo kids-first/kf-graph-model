@@ -1,0 +1,43 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: _definitions
+
+core:
+  properties:
+    id:
+      type: string
+      pattern: "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$"
+    name:
+      type: string
+    description:
+      type: string
+    acl:
+      type: string
+      pattern: "^(open)|([a-zA-Z]{1}[a-zA-Z0-9_-]+[a-zA-Z0-9]{1})$"
+    submitter_id:
+      type: string
+      pattern: "^[a-zA-Z]{1}[a-zA-Z0-9_-]+[a-zA-Z0-9]{1}$"
+    date:
+      type: string
+      format: date
+    date_time:
+      type: string
+      format: date-time
+data_object:
+  properties:
+    file_size:
+      type: integer
+    file_md5sum:
+      type: string
+    file_name:
+      type: string
+    file_format:
+      type: string
+    file_extension:
+      type: string
+    file_state:
+      enum: ["registered", "uploaded", "error", "validated"]
+    data_category:
+      type: string
+    data_type:
+      type: string

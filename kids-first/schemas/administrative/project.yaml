@@ -1,0 +1,41 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "project"
+title: Project
+type: object
+category: administrative
+project: '*'
+description: 
+additionalProperties: false
+
+systemProperties:
+  - id
+
+required:
+  - type
+  - code
+  - name
+  - study
+
+uniqueKeys:
+  - [id]
+  - [code]
+  - [name]
+
+properties:
+  type:
+    enum: [ "project" ]
+  id:
+    $ref: _definitions#/core/id
+  code:
+    type: string
+    description: "Project code"
+  name:
+    type: string
+    description: "Display name for the project"
+  program:
+    _link: parent
+    type: object
+    properties:
+      id:
+        $ref: program#/id

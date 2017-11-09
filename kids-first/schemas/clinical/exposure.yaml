@@ -1,0 +1,43 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "exposure"
+title: Exposure
+type: object
+project: '*'
+category: clinical
+description: 
+additionalProperties: false
+
+systemProperties:
+  - id
+
+required:
+  - type
+  - case
+  - project
+
+uniqueKeys:
+  - [id]
+
+properties:
+  type:
+    enum: [ "exposure" ]
+  id:
+    type: string
+  case:
+    _link: parent
+    type: object
+    oneOf:
+      - required: [id]
+      - required: [submitter_id]
+    properties:
+      id:
+        $ref: case#/id
+      submitter_id:
+        $ref: case#/submitter_id
+  project:
+    _link: parent
+    type: object
+    properties:
+      code:
+        $ref: project#/code

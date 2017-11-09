@@ -1,0 +1,57 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "sample"
+title: Sample
+type: object
+project: '*'
+category: biospecimen
+description: 
+additionalProperties: false
+
+systemProperties:
+  - id
+
+required:
+  - type
+  - case
+  - submitter_id
+
+uniqueKeys:
+  - [id]
+  - [project.code, submitter_id]
+
+properties:
+  type:
+    enum: [ "sample" ]
+  id:
+    type: string
+  submitter_id:
+    type: string
+    description: "Submitter's sample ID"
+  sample_type:
+    enum:
+      - "Normal - solid tissue"
+      - "Normal - blood derived"
+      - "Normal - bone marrow"
+      - "Primary tumour - solid tissue"
+      - "Primary tumour - blood derived (peripheral blood)"
+      - "Primary tumour - blood derived (bone marrow)"
+      - "Primary tumour - additional new primary"
+      - "Primary tumour - other"
+  case:
+    _link: parent
+    type: object
+    oneOf:
+      - required: [id]
+      - required: [submitter_id]
+    properties:
+      id:
+        $ref: case#/id
+      submitter_id:
+        $ref: case#/submitter_id
+  project:
+    _link: parent
+    type: object
+    properties:
+      code:
+        $ref: project#/code

@@ -1,0 +1,30 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "program"
+title: Program
+type: object
+category: administrative
+project: '*'
+description:
+additionalProperties: false
+
+systemProperties:
+  - id
+
+required:
+  - type
+  - name
+
+uniqueKeys:
+  - [id]
+  - [name]
+
+properties:
+  type:
+    enum: [ "program" ]
+  id:
+    enum: [ "KidsFirst" ]
+  name:
+    enum: [ "Gabriella Miller Kids First Program" ]
+  description:
+    type: string
