@@ -28,7 +28,7 @@ paths:
           in: path
           required: true
         - name: raw
-          type: string
+          type: boolean
           in: query
       responses:
         200:
