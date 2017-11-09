@@ -5,7 +5,7 @@ title: Sequence Alignment
 type: object
 project: '*'
 category: analysis
-description: 
+description: ""
 additionalProperties: false
 
 systemProperties:
@@ -25,7 +25,7 @@ properties:
   type:
     enum: [ "sequence_alignment" ]
   id:
-    $ref: _definitions#/core/id
+    $ref: _definitions#/core/properties/id
   analysis_type:
     enum: [ Alignment ]
   tool:
@@ -44,16 +44,14 @@ properties:
     items:
       type: object
       properties:
-        $ref: read_group#/id
+        $ref: read_group#/properties/id
   output:
     _link: child
     type: array
     minItems: 1
     uniqueItems: true
     items:
-      type: object
-      properties:
-        $ref: _definitions#/data_object
+      $ref: _definitions#/data_object
   project:
     _link: parent
     type: object

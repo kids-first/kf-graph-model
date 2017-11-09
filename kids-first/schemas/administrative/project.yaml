@@ -5,7 +5,7 @@ title: Project
 type: object
 category: administrative
 project: '*'
-description: 
+description: ""
 additionalProperties: false
 
 systemProperties:
@@ -26,7 +26,7 @@ properties:
   type:
     enum: [ "project" ]
   id:
-    $ref: _definitions#/core/id
+    $ref: _definitions#/core/properties/id
   code:
     type: string
     description: "Project code"
@@ -38,4 +38,4 @@ properties:
     type: object
     properties:
       id:
-        $ref: program#/id
+        $ref: program#/properties/id

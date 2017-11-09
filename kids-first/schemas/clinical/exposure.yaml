@@ -5,7 +5,6 @@ title: Exposure
 type: object
 project: '*'
 category: clinical
-description: 
 additionalProperties: false
 
 systemProperties:
@@ -32,12 +31,12 @@ properties:
       - required: [submitter_id]
     properties:
       id:
-        $ref: case#/id
+        $ref: case#/properties/id
       submitter_id:
-        $ref: case#/submitter_id
+        $ref: case#/properties/submitter_id
   project:
     _link: parent
     type: object
     properties:
       code:
-        $ref: project#/code
+        $ref: project#/properties/code

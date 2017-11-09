@@ -5,7 +5,7 @@ title: Case
 type: object
 project: '*'
 category: clinical
-description: 
+description: ""
 additionalProperties: false
 
 systemProperties:  # properties to be managed by the system
@@ -24,7 +24,7 @@ properties:
   type:
     enum: [ "case" ]
   id:
-    $ref: _definitions#/core/id
+    $ref: _definitions#/core/properties/id
   submitter_id:
     type: string
     description: "Submitter's case ID"
@@ -34,11 +34,11 @@ properties:
     _link: parent
     type: object
     properties:
-      code:
-        $ref: family#/id
+      id:
+        $ref: family#/properties/id
   project:
     _link: parent
     type: object
     properties:
       code:
-        $ref: project#/code
+        $ref: project#/properties/code

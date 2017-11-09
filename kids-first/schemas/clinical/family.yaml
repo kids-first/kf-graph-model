@@ -27,22 +27,22 @@ properties:
   type:
     enum: [ "family" ]
   id:
-    $ref: _definitions#/core/id
+    $ref: _definitions#/core/properties/id
   father:
     _link: parent:case
     type: object
     properties:
       id:
-        $ref: case#/id
+        $ref: case#/properties/id
   mother:
     _link: parent:case
     type: object
     properties:
       id:
-        $ref: case#/id
+        $ref: case#/properties/id
   project:
     _link: parent
     type: object
     properties:
       code:
-        $ref: project#/code
+        $ref: project#/properties/code

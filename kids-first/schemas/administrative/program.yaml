@@ -5,7 +5,7 @@ title: Program
 type: object
 category: administrative
 project: '*'
-description:
+description: ""
 additionalProperties: false
 
 systemProperties:

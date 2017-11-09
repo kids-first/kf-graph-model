@@ -91,17 +91,23 @@ class GraphSchema(object):
         # let's start with _definitions
         # may need to generalize this for later to include more definitions start with '_' 
         definitions = self.schemas['_definitions']
-        definitions['id'] = "%s/%s#" % (self.url_prefix, definitions['id'])
+        definitions['id'] = "%s/%s" % (self.url_prefix, definitions['id'])
 
+        """
+        # for some reason added 'id' does not work 
         for i in definitions:
             if i in ('$schema', 'id'): continue
             for p in definitions[i].get('properties', {}):
                 definitions[i]['properties'][p]['id'] = '%s/%s' % (i, p)
+        """
 
         # now others
         for e in self.schemas:
             if e.startswith('_'): continue
-            self.schemas[e]['id'] = "%s/%s#" % (self.url_prefix, self.schemas[e]['id'])
+            self.schemas[e]['id'] = "%s/%s" % (self.url_prefix, self.schemas[e]['id'])
+
+            """
+            # for some reason added 'id' does not work 
             for p in self.schemas[e]['properties']:
                 self.schemas[e]['properties'][p]['id'] = p
-
+            """

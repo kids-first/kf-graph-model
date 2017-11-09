@@ -3,6 +3,7 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: _definitions
 
 core:
+  type: object
   properties:
     id:
       type: string
@@ -24,7 +25,11 @@ core:
       type: string
       format: date-time
 data_object:
+  type: object
+  required: [ file_size, file_md5sum, file_name ]
   properties:
+    id:
+      "$ref": "#core/properties/id"
     file_size:
       type: integer
     file_md5sum:

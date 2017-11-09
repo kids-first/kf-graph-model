@@ -5,7 +5,7 @@ title: Aliquot
 type: object
 project: '*'
 category: biospecimen
-description: 
+description: ""
 additionalProperties: false
 
 systemProperties:
@@ -24,7 +24,7 @@ properties:
   type:
     enum: [ "aliquot" ]
   id:
-    $ref: _definitions#/core/id
+    $ref: _definitions#/core/properties/id
   submitter_id:
     type: string
     description: "Submitter's aliquot ID"
@@ -36,12 +36,12 @@ properties:
       - required: [submitter_id]
     properties:
       id:
-        $ref: sample#/id
+        $ref: sample#/properties/id
       submitter_id:
-        $ref: sample#/submitter_id
+        $ref: sample#/properties/submitter_id
   project:
     _link: parent
     type: object
     properties:
       code:
-        $ref: project#/code
+        $ref: project#/properties/code
