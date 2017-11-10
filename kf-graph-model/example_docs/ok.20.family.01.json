@@ -1,0 +1,20 @@
+{
+  "type": "family",
+  "project": {
+    "code": "TCGA-ALL"
+  },
+  "father": {
+    "id": "9d329595-fe4b-4eba-9924-c49577cb1622"
+  },
+  "mother": {
+    "id": "12d8ec1c-99cf-4b85-9670-4fe663cfb253"
+  },
+  "children": [
+    {
+      "id": "f355cc10-2bf9-4d7c-ba5a-2b6c3f7841e7"
+    },
+    {
+      "id": "a8ed626b-ef08-4e97-95e5-d16c520b48fe"
+    }
+  ]
+}

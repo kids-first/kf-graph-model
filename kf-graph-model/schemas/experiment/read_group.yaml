@@ -19,6 +19,7 @@ required:
   - is_paired_end
   - aliquot
   - sequencing_file
+  - project
 
 uniqueKeys:
   - [id]
@@ -70,7 +71,8 @@ properties:
       submitter_id:
         type: string
   sequencing_file:
-    _link: child
+    _link: nested:data_object
+    systemProperties: [ file_state ]
     anyOf:
       - type: array
         minItems: 1  # single end
@@ -88,9 +90,14 @@ properties:
           - properties:
               file_format:
                 enum: [ BAM ]
+              data_category:
+                enum: [ "Sequencing reads" ]
+              data_type:
+                enum: [ "Unaligned BAM" ]
   project:
-    _parent: true
+  project:
+    _link: parent
     type: object
     properties:
       code:
-        type: string
+        $ref: project#/properties/code

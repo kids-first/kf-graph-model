@@ -30,12 +30,6 @@ properties:
     description: "Submitter's case ID"
   gender:
     enum: ["female", "male", "unknown", null]
-  family:
-    _link: parent
-    type: object
-    properties:
-      id:
-        $ref: family#/properties/id
   project:
     _link: parent
     type: object

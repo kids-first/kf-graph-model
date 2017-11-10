@@ -37,7 +37,12 @@ def test_jsons(graph_schemas):
                 print('JSON doc %s should fail but it passed schema validation!' % j)
                 assert False
         elif os.path.basename(ok.lower()) == 'ok':
-            Draft4Validator(graph_schemas.schemas[schema_id], resolver=resolver).validate(json_data)
+            if isinstance(json_data, list):
+                for data in json_data:
+                    Draft4Validator(graph_schemas.schemas[schema_id], resolver=resolver).validate(data)
+            else:
+                Draft4Validator(graph_schemas.schemas[schema_id], resolver=resolver).validate(json_data)
+
         else:
             print("Testing JSON doc %s name has to start with 'ok' or 'ko'!" % j)
             assert False

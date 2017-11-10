@@ -1,10 +1,36 @@
-{
-    "type": "case",
-    "family":{
-        "id": "a355cc10-2bf9-4d7c-ba5a-2b6c3f7841e7"
+[
+    {
+        "type": "case",
+        "id": "9d329595-fe4b-4eba-9924-c49577cb1622",
+        "project": {
+            "code": "TCGA-ALL"
+        },
+        "gender": "male",
+        "submitter_id": "TCGA-23-02"
     },
-    "project": {
-        "code": "TCGA-ALL"
+    {
+        "type": "case",
+        "id": "12d8ec1c-99cf-4b85-9670-4fe663cfb253",
+        "project": {
+            "code": "TCGA-ALL"
+        },
+        "gender": "female",
+        "submitter_id": "TCGA-23-03"
     },
-    "submitter_id": "TCGA-23-NL"
-}
+    {
+        "type": "case",
+        "id": "a8ed626b-ef08-4e97-95e5-d16c520b48fe",
+        "project": {
+            "code": "TCGA-ALL"
+        },
+        "gender": "male",
+        "submitter_id": "TCGA-23-04"
+    },
+    {
+        "type": "case",
+        "project": {
+            "code": "TCGA-ALL"
+        },
+        "submitter_id": "TCGA-23-05"
+    }
+]

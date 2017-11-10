@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/kids-first/kf-graph-model.svg?branch=master)](https://travis-ci.org/kids-first/kf-graph-model)
+
 # Kids First Graph Model
 
 We use extended JSON schema specification to define Kids First Graph Model.

@@ -7,15 +7,17 @@
     "aliquot": {
         "submitter_id": "dfd"
     },
+    "project": {
+        "code": "dfew"
+    },
     "sequencing_file":
     {
         "id": "f355cc10-2bf9-4d7c-ba5a-2b6c3f7841e7",
-        "data_category": "dfdas",
+        "data_category": "Sequencing reads",
         "file_size": 32432,
         "file_md5sum": "3432",
-        "file_name": "fdf_1.fq",
-        "file_format": "BAM",
-        "file_state": "uploaded"
+        "file_name": "fdf_1.bam",
+        "file_format": "BAM"
     },
     "id": "f355cc10-2bf9-4d7c-ba5a-2b6c3f7841e7"
 }

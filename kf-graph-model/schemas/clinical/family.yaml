@@ -18,6 +18,7 @@ required:
   - project
   - father
   - mother
+  - children
 
 uniqueKeys:
   - [id]
@@ -40,6 +41,15 @@ properties:
     properties:
       id:
         $ref: case#/properties/id
+  children:
+    _link: child:case
+    type: array
+    items:
+      uniqueItems: true
+      type: object
+      properties:
+        id:
+          $ref: case#/properties/id
   project:
     _link: parent
     type: object
