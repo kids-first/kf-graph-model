@@ -20,3 +20,5 @@ python app.py
 The schemas will be available under: http://localhost:8081/schemas/kf-graph-model/v0.0.1/.
 Append the entity type to the URL to get it's own schema,
 eg, [read_group](http://localhost:8081/schemas/kf-graph-model/v0.0.1/read_group)
+
+Run tests with `pytest`.
