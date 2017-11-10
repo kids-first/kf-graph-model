@@ -1,0 +1,9 @@
+{
+    "type": "case",
+    "family":{
+        "id": "a355cc10-2bf9-4d7c-ba5a-2b6c3f7841e7"
+    },
+    "project": {
+        "code": "TCGA-ALL"
+    }
+}

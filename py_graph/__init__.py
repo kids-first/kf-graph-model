@@ -80,20 +80,19 @@ class GraphSchema(object):
                     if entity_type in self.raw_definitions:
                         raise Exception("Entity redefined: %s!" % entity_type)
 
-                    if not entity_type.startswith('_'):
-                        self._entity_types.append(entity_type)
+                    self._entity_types.append(entity_type)
 
                     self._raw_definitions[entity_type] = yaml.load(s)
 
     def _prepare_schemas(self):
         self._schemas = deepcopy(self.raw_definitions)
 
+        """
         # let's start with _definitions
         # may need to generalize this for later to include more definitions start with '_' 
         definitions = self.schemas['_definitions']
         definitions['id'] = "%s/%s" % (self.url_prefix, definitions['id'])
 
-        """
         # for some reason added 'id' does not work 
         for i in definitions:
             if i in ('$schema', 'id'): continue
@@ -103,7 +102,7 @@ class GraphSchema(object):
 
         # now others
         for e in self.schemas:
-            if e.startswith('_'): continue
+            # if e.startswith('_'): continue
             self.schemas[e]['id'] = "%s/%s" % (self.url_prefix, self.schemas[e]['id'])
 
             """

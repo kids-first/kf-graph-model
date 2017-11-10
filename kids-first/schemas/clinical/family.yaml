@@ -5,9 +5,9 @@ title: Family
 type: object
 project: '*'
 category: clinical
-description: |
+description: >
   This is an entity holding a father/mother pair with a unique family ID which
-  will then be used by child entities to link to the parents forming a pedigree.  
+  will then be used by child entities to link to the parents forming a pedigree.
 additionalProperties: false
 
 systemProperties:

@@ -36,15 +36,13 @@ properties:
     type: string
   info:
     type: object
-  read_group:
-    _link: parent
+  read_groups:
+    _link: parent:read_group
     type: array
     minItems: 1
     uniqueItems: true
     items:
-      type: object
-      properties:
-        $ref: read_group#/properties/id
+      $ref: read_group#/properties/id
   output:
     _link: child
     type: array

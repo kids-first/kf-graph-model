@@ -1,0 +1,21 @@
+{
+    "type": "read_group",
+    "read_group_name": "dfdf",
+    "library_strategy": "WGS",
+    "is_paired_end": true,
+    "platform": "Illumina",
+    "aliquot": {
+        "submitter_id": "dfd"
+    },
+    "sequencing_file":
+    {
+        "id": "f355cc10-2bf9-4d7c-ba5a-2b6c3f7841e7",
+        "data_category": "dfdas",
+        "file_size": 32432,
+        "file_md5sum": "3432",
+        "file_name": "fdf_1.fq",
+        "file_format": "BAM",
+        "file_state": "uploaded"
+    },
+    "id": "f355cc10-2bf9-4d7c-ba5a-2b6c3f7841e7"
+}
