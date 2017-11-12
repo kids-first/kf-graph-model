@@ -60,7 +60,9 @@ properties:
       - "Bisulfite-Seq"
       - "ChIP-Seq"
   aliquot:
-    _link: parent
+    _link:
+      type: parent
+      target: aliquot
     type: object
     oneOf:  # Sample ID should match what's in BAM @RG header
       - required: [id]

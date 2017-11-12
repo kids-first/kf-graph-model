@@ -24,7 +24,9 @@ properties:
   id:
     type: string
   case:
-    _link: parent
+    _link:
+      type: parent
+      target: case
     type: object
     oneOf:
       - required: [id]
