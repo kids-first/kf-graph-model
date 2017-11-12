@@ -34,7 +34,9 @@ properties:
     type: string
     description: "Display name for the project"
   program:
-    _link: parent
+    _link:
+      type: parent
+      target: program
     type: object
     properties:
       id:

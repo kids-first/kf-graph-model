@@ -18,7 +18,7 @@ required:
   - read_group_name
   - is_paired_end
   - aliquot
-  - sequencing_file
+  - data_file
   - project
 
 uniqueKeys:
@@ -67,11 +67,15 @@ properties:
       - required: [submitter_id]
     properties:
       id:
-        type: string
+        $ref: aliquot#/properties/id
       submitter_id:
-        type: string
-  sequencing_file:
-    _link: nested:data_object
+        $ref: aliquot#/properties/submitter_id
+  data_file:
+    _link:
+      type: nested
+      target: data_object
+      label: output_data
+      reverse_label: output_from
     systemProperties: [ file_state ]
     anyOf:
       - type: array
@@ -84,6 +88,10 @@ properties:
             - properties:
                 file_format:
                   enum: [ FASTQ ]
+                  data_category:
+                    enum: [ "Sequencing reads" ]
+                  data_type:
+                    enum: [ "Unaligned reads" ]
       - type: object
         allOf:
           - {"$ref": "_definitions#/data_object"}
@@ -93,10 +101,11 @@ properties:
               data_category:
                 enum: [ "Sequencing reads" ]
               data_type:
-                enum: [ "Unaligned BAM" ]
+                enum: [ "Unaligned reads" ]
   project:
-  project:
-    _link: parent
+    _link:
+      type: parent
+      target: project
     type: object
     properties:
       code:

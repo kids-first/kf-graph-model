@@ -1,0 +1,48 @@
+{
+  "type": "sequence_alignment",
+  "analysis_type": "Sequence alignment",
+  "tool": "bwa_mem",
+  "version": "0.7.17",
+  "aliquot":{
+    "id": "d8cd67b4-a6c8-4231-92cf-45a6a25db733"
+  },
+  "input": {
+    "info": {
+      "anything": "here is fine",
+      "maybe": "add workflow/tool parameters here"
+    },
+    "data_file": [
+      {
+        "id": "5e21d528-e8b0-47ba-862e-b0274db3df12",
+        "file_name": "fdf_1.fq"
+      },
+      {
+        "type": "data_object",
+        "id": "e0c44e9d-ae40-4d0f-950b-4b318f065db4",
+        "file_name": "fdf_2.fq"
+      }
+    ]
+  },
+  "output": {
+    "data_file": {
+      "type": "data_object",
+      "id": "e4f3c7c2-05d9-49bb-b1ee-2fcd8dded705",
+      "data_category": "Sequencing reads",
+      "data_type": "Aligned reads",
+      "file_name": "afgfdf_1.bam",
+      "file_size": 735332432,
+      "file_md5sum": "bfdd3d166a4ed5123fe4ac1779af781a",
+      "file_format": "BAM"
+    },
+    "index_file": {
+      "type": "data_object",
+      "id": "1e8a1748-2aa0-44af-b68e-f5ab389476f2",
+      "data_category": "Sequencing reads",
+      "data_type": "Index",
+      "file_name": "afgfdf_1.bam.bai",
+      "file_size": 53432,
+      "file_md5sum": "2f147fb926cc63ee6380b97c9cb4ed5f",
+      "file_format": "BAI"
+    }
+  }
+}

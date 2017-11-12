@@ -10,14 +10,15 @@
     "project": {
         "code": "dfew"
     },
-    "sequencing_file":
+    "data_file":
     {
-        "id": "f355cc10-2bf9-4d7c-ba5a-2b6c3f7841e7",
+        "id": "1f3c72ed-5239-4205-a60a-b2519bbc6e7e",
         "data_category": "Sequencing reads",
+        "data_type": "Unaligned reads",
         "file_size": 32432,
         "file_md5sum": "3432",
         "file_name": "fdf_1.bam",
         "file_format": "BAM"
     },
-    "id": "f355cc10-2bf9-4d7c-ba5a-2b6c3f7841e7"
+    "id": "e1810e64-1177-45e2-89fa-a631e97d5962"
 }

@@ -39,7 +39,9 @@ properties:
       - "Primary tumour - additional new primary"
       - "Primary tumour - other"
   case:
-    _link: parent
+    _link:
+      type: parent
+      target: case
     type: object
     oneOf:
       - required: [id]
@@ -50,7 +52,9 @@ properties:
       submitter_id:
         $ref: case#/properties/submitter_id
   project:
-    _link: parent
+    _link:
+      type: parent
+      target: project
     type: object
     properties:
       code:

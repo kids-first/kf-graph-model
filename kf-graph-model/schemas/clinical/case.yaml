@@ -31,7 +31,9 @@ properties:
   gender:
     enum: ["female", "male", "unknown", null]
   project:
-    _link: parent
+    _link:
+      type: parent
+      target: project
     type: object
     properties:
       code:

@@ -1,0 +1,179 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "mutect2_ssm_calling"
+title: MuTect2 simple somatic mutation calling
+type: object
+project: '*'
+category: analysis
+description: ""
+additionalProperties: false
+
+systemProperties:
+  - id
+
+required:
+  - type
+  - case
+  - input
+  - output
+
+uniqueKeys:
+  - [id]
+
+properties:
+  type:
+    enum: [ "mutect2_ssm_calling" ]
+  id:
+    $ref: _definitions#/core/properties/id
+  analysis_type:
+    enum: [ Somatic simple mutation calling ]
+  tool:
+    type: string
+  version:
+    type: string
+  description:
+    type: string
+  case:
+    _link:
+      type: parent
+      target: case
+      label: Case
+      reverse_label: SSM Call
+    type: object
+    properties:
+      id:
+        $ref: case#/properties/id
+  input:
+    type: object
+    required: [ tumor_alignment, normal_alignment ]
+    additionalProperties: false
+    properties:
+      info:
+        type: object
+      tumor_alignment:
+        _link:
+          type: nested
+          target: data_object
+        type: object
+        properties:
+          type:
+            enum: [ data_object ]
+          id:
+            $ref: _definitions#/data_object/properties/id
+          file_name:
+            $ref: _definitions#/data_object/properties/file_name
+          aliquot:
+            _link:
+              type: parent
+              taget: aliquot
+              label: Tumor aliquot
+              reverse_label: SSM call
+            type: object
+            properties:
+              id:
+                $ref: aliquot#/properties/id
+      normal_alignment:
+        _link:
+          type: nested
+          target: data_object
+        type: object
+        properties:
+          type:
+            enum: [ data_object ]
+          id:
+            $ref: _definitions#/data_object/properties/id
+          file_name:
+            $ref: _definitions#/data_object/properties/file_name
+          aliquot:
+            _link:
+              type: parent
+              taget: aliquot
+              label: Normal aliquot
+              reverse_label: SSM call
+            type: object
+            properties:
+              id:
+                $ref: aliquot#/properties/id
+  output:
+    type: object
+    additionalProperties: false
+    required: [ snv_mnv, indel ]
+    properties:
+      snv_mnv:
+        type: object
+        properties:
+          data_file:
+            _link:
+              type: nested
+              target: data_object
+            type: object
+            allOf:
+              - {"$ref": "_definitions#/data_object"}
+              - properties:
+                  type:
+                    enum: [ data_object ]
+                  file_format:
+                    enum: [ VCF ]
+                  data_category:
+                    enum: [ "Simple Somatic Mutations" ]
+                  data_type:
+                    enum: [ "SNV/MNV" ]
+          index_file:
+            _link:
+              type: nested
+              target: data_object
+            type: object
+            allOf:
+              - {"$ref": "_definitions#/data_object"}
+              - properties:
+                  type:
+                    enum: [ data_object ]
+                  file_format:
+                    enum: [ TBI ]
+                  data_category:
+                    enum: [ "Simple Somatic Mutations" ]
+                  data_type:
+                    enum: [ "Index" ]
+      indel:
+        type: object
+        properties:
+          data_file:
+            _link:
+              type: nested
+              target: data_object
+            type: object
+            allOf:
+              - {"$ref": "_definitions#/data_object"}
+              - properties:
+                  type:
+                    enum: [ data_object ]
+                  file_format:
+                    enum: [ VCF ]
+                  data_category:
+                    enum: [ "Simple Somatic Mutations" ]
+                  data_type:
+                    enum: [ "InDel" ]
+          index_file:
+            _link:
+              type: nested
+              target: data_object
+            type: object
+            allOf:
+              - {"$ref": "_definitions#/data_object"}
+              - properties:
+                  type:
+                    enum: [ data_object ]
+                  file_format:
+                    enum: [ TBI ]
+                  data_category:
+                    enum: [ "Simple Somatic Mutations" ]
+                  data_type:
+                    enum: [ "Index" ]
+  project:
+    _link:
+      type: parent
+      target: project
+    type: object
+    properties:
+      code:
+        $ref: project#/properties/code

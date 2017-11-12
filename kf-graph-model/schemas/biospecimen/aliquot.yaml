@@ -29,7 +29,11 @@ properties:
     type: string
     description: "Submitter's aliquot ID"
   sample:
-    _link: parent
+    _link:
+      type: parent
+      target: sample
+      label: Derived from
+      reverse_label: Produces
     type: object
     oneOf:
       - required: [id]
@@ -40,7 +44,9 @@ properties:
       submitter_id:
         $ref: sample#/properties/submitter_id
   project:
-    _link: parent
+    _link:
+      type: parent
+      target: project
     type: object
     properties:
       code:

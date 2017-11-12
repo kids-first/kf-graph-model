@@ -6,8 +6,8 @@ type: object
 project: '*'
 category: clinical
 description: >
-  This is an entity holding a father/mother pair with a unique family ID which
-  will then be used by child entities to link to the parents forming a pedigree.
+  This is an entity holding a father/mother pair with a unique family ID, children can
+  be added as needed.
 additionalProperties: false
 
 systemProperties:
@@ -30,19 +30,25 @@ properties:
   id:
     $ref: _definitions#/core/properties/id
   father:
-    _link: parent:case
+    _link:
+      type: parent
+      target: case
     type: object
     properties:
       id:
         $ref: case#/properties/id
   mother:
-    _link: parent:case
+    _link:
+      type: parent
+      target: case
     type: object
     properties:
       id:
         $ref: case#/properties/id
   children:
-    _link: child:case
+    _link:
+      type: child
+      target: case
     type: array
     items:
       uniqueItems: true
@@ -51,7 +57,9 @@ properties:
         id:
           $ref: case#/properties/id
   project:
-    _link: parent
+    _link:
+      type: parent
+      target: project
     type: object
     properties:
       code:

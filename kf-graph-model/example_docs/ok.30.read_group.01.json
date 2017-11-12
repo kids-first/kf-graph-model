@@ -10,19 +10,21 @@
     "project": {
         "code": "dfew"
     },
-    "sequencing_file":
+    "data_file":
     [
         {
-            "id": "f355cc10-2bf9-4d7c-ba5a-2b6c3f7841e7",
+            "id": "5e21d528-e8b0-47ba-862e-b0274db3df12",
             "data_category": "Sequencing reads",
+            "data_type": "Unaligned reads",
             "file_size": 32432,
             "file_md5sum": "3432",
             "file_name": "fdf_1.fq",
             "file_format": "FASTQ"
         },
         {
-            "id": "f355cc10-2bf9-4d7c-ba5a-2b6c3f7841e7",
+            "id": "e0c44e9d-ae40-4d0f-950b-4b318f065db4",
             "data_category": "Sequencing reads",
+            "data_type": "Unaligned reads",
             "file_size": 32432,
             "file_md5sum": "3432",
             "file_name": "fdf_2.fq",

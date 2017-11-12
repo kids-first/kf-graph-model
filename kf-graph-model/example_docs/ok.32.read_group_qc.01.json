@@ -1,0 +1,41 @@
+{
+  "type": "read_group_qc",
+  "analysis_type": "Sequencing raw reads QC",
+  "tool": "fastqc",
+  "version": "0.11.5",
+  "read_group":{
+    "id": "f355cc10-2bf9-4d7c-ba5a-2b6c3f7841e7"
+  },
+  "input": {
+    "info": {
+      "anything": "here is fine",
+      "maybe": "add workflow/tool parameters here"
+    },
+    "data_file": [
+      {
+        "type": "data_object",
+        "id": "5e21d528-e8b0-47ba-862e-b0274db3df12",
+        "file_name": "fdf_1.fq"
+      },
+      {
+        "type": "data_object",
+        "id": "e0c44e9d-ae40-4d0f-950b-4b318f065db4",
+        "file_name": "fdf_2.fq"
+      }
+    ]
+  },
+  "output": {
+    "data_file": {
+      "id": "e4f3c7c2-05d9-49bb-b1ee-2fcd8dded705",
+      "file_name": "fastq_qc_123423.tar.gz",
+      "file_size": 5332432,
+      "file_md5sum": "bfdd3d166a4ed5123fe4ac1779af781a",
+      "file_format": "TAR"
+    },
+    "qc_metrics": {
+      "read_count": 25000000,
+      "read_length": 150,
+      "file_format": "BAI"
+    }
+  }
+}

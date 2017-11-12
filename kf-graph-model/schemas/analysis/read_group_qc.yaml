@@ -1,0 +1,98 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "read_group_qc"
+title: Read Group QC
+type: object
+project: '*'
+category: analysis
+description: ""
+additionalProperties: false
+
+systemProperties:
+  - id
+
+required:
+  - type
+  - input
+  - output
+
+uniqueKeys:
+  - [id]
+
+properties:
+  type:
+    enum: [ "read_group_qc" ]
+  id:
+    $ref: _definitions#/core/properties/id
+  analysis_type:
+    enum: [ "Sequencing raw reads QC" ]
+  tool:
+    type: string
+  version:
+    type: string
+  description:
+    type: string
+  read_group:
+    _link:
+      type: parent
+      target: read_group
+      label: Input
+      reverse_label: QC'ed by
+    type: object
+    properties:
+      id:
+        $ref: read_group#/properties/id
+  input:
+    type: object
+    additionalProperties: false
+    properties:
+      info:
+        type: object
+      data_file:
+        _link:
+          type: parent
+          target: data_object
+          label: Input
+          reverse_label: QC'ed by
+        type: array
+        minItems: 1
+        uniqueItems: true
+        items:
+          type: object
+          required: [ id, file_name ]
+          properties:
+            type:
+              enum: [ data_object ]
+            id:
+              $ref: _definitions#/data_object/properties/id
+            file_name:
+              $ref: _definitions#/data_object/properties/file_name
+  output:
+    type: object
+    properties:
+      qc_metrics:  # we can add more detailed properties later
+        type: object
+      data_file:
+        _link:
+          type: nested
+          target: data_object
+        type: object
+        allOf:
+          - {"$ref": "_definitions#/data_object"}
+          - properties:
+              type:
+                enum: [ data_object ]
+              file_format:
+                enum: [ TAR ]
+              data_category:
+                enum: [ "QC metrics" ]
+              data_type:
+                enum: [ "QC report tarball" ]
+  project:
+    _link:
+      type: parent
+      target: project
+    type: object
+    properties:
+      code:
+        $ref: project#/properties/code

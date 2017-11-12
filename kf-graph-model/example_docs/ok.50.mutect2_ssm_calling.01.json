@@ -1,0 +1,77 @@
+{
+  "type": "mutect2_ssm_calling",
+  "analysis_type": "Somatic simple mutation calling",
+  "tool": "mutect2_ssm",
+  "version": "0.1.1",
+  "case":{
+    "id": "f355cc10-2bf9-4d7c-ba5a-2b6c3f7841e7"
+  },
+  "input": {
+    "info": {
+      "anything": "here is fine",
+      "maybe": "add workflow/tool parameters here"
+    },
+    "tumor_alignment": {
+      "type": "data_object",
+      "id": "1f3c72ed-5239-4205-a60a-b2519bbc6e7e",
+      "file_name": "fdf_1.bam",
+      "aliquot": {
+        "id": "d8cd67b4-a6c8-4231-92cf-45a6a25db733"
+      }
+    },
+    "normal_alignment": {
+      "type": "data_object",
+      "id": "523c61a1-36c0-4e93-95b7-8a1a5c72245e",
+      "file_name": "ttr_1.bam",
+      "aliquot": {
+        "id": "1b52c491-d22c-4b55-af89-8b78069fc6c2"
+      }
+    }
+  },
+  "output": {
+    "snv_mnv": {
+      "data_file": {
+        "type": "data_object",
+        "id": "e4f3c7c2-05d9-49bb-b1ee-2fcd8dded705",
+        "data_category": "Simple Somatic Mutations",
+        "data_type": "SNV/MNV",
+        "file_name": "afadd.mutect2.20171111.somatic.snv_mnv.vcf.gz",
+        "file_size": 58776,
+        "file_md5sum": "2ff5859bbd484aeb80b7aadd9bade963",
+        "file_format": "VCF"
+      },
+      "index_file": {
+        "type": "data_object",
+        "id": "1e8a1748-2aa0-44af-b68e-f5ab389476f2",
+        "data_category": "Simple Somatic Mutations",
+        "data_type": "Index",
+        "file_name": "afadd.mutect2.20171111.somatic.snv_mnv.vcf.gz.tbi",
+        "file_size": 25959,
+        "file_md5sum": "979ce015af991be4fede1ff66edec393",
+        "file_format": "TBI"
+      }
+    },
+    "indel": {
+      "data_file": {
+        "type": "data_object",
+        "id": "e4f3c7c2-05d9-49bb-b1ee-2fcd8dded705",
+        "data_category": "Simple Somatic Mutations",
+        "data_type": "InDel",
+        "file_name": "afadd.mutect2.20171111.somatic.indel.vcf.gz",
+        "file_size": 40794,
+        "file_md5sum": "5d0893357abe97150abc3ba80a8dce06",
+        "file_format": "VCF"
+      },
+      "index_file": {
+        "type": "data_object",
+        "id": "1e8a1748-2aa0-44af-b68e-f5ab389476f2",
+        "data_category": "Simple Somatic Mutations",
+        "data_type": "Index",
+        "file_name": "afadd.mutect2.20171111.somatic.indel.vcf.gz.tbi",
+        "file_size": 16386,
+        "file_md5sum": "ac7487ee24bd68a74b1489de194cd33e",
+        "file_format": "TBI"
+      }
+    }
+  }
+}
