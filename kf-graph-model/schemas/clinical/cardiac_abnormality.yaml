@@ -70,12 +70,12 @@ properties:
     type: object
     required: [ 'hpo_term', 'observation' ]
     properties:
-      hpo_term:
+      hpo_term:  # basically, what we are doing is to annotated patient with HPO term
         _link:
           type: parent
           target: hpo
         enum: [ 'HP:0011620' ]
-      observation:
+      observation:  # maybe we don't even need this field, if it's going to be always 'Abnormal'
         enum: [ 'Abnormal' ]
   atrial_septum:
     required: [ 'hpo_term', 'observation' ]
