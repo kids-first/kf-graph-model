@@ -28,6 +28,10 @@ properties:
   submitter_id:
     type: string
     description: "Submitter's case ID"
+  consent:  # will need to standardise this, current values taken from PCGC
+    enum: ["General Research Usage", "Cardiac Research Only"]  # we may need an entry for "consent withdraw"
+  affection_status:
+    enum: ["Relative", "Proband"]
   gender:
     enum: ["female", "male", "unknown", null]
   project:

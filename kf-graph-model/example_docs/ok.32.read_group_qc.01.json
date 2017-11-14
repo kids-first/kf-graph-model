@@ -34,8 +34,7 @@
     },
     "qc_metrics": {
       "read_count": 25000000,
-      "read_length": 150,
-      "file_format": "BAI"
+      "read_length": 150
     }
   }
 }

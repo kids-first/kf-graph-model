@@ -1,0 +1,50 @@
+[
+  {
+    "type": "hpo",
+    "id": "HP:0002719",
+    "name": "Recurrent infections",
+    "alt_id": [
+      "HP:0002957", "HP:0002964", "HP:0005405"
+    ],
+    "def": "Increased susceptibility to infections.",
+    "synonym": [
+      "Frequent infections",
+      "Frequent, severe infections",
+      "Increased frequency of infection",
+      "infections, recurrent",
+      "Predisposition to infections",
+      "Recurrent infections",
+      "Susceptibility to infection"
+    ],
+    "xref": [ "UMLS:C0239998" ],
+    "is_a": [
+      { "id": "HP:0010978" }
+    ]
+  },
+  {
+    "type": "hpo",
+    "id": "HP:0002718",
+    "name": "Recurrent bacterial infections",
+    "alt_id": [
+      "HP:0005355", "HP:0005361", "HP:0005391", "HP:0005393", "HP:0005410"
+    ],
+    "def": "Increased susceptibility to bacterial infections, as manifested by recurrent episodes of bacterial infection.",
+    "synonym": [
+      "Bacterial infections, recurrent",
+      "Frequent bacterial infections",
+      "Frequent pyogenic infections",
+      "Increased susceptibility to bacterial infections",
+      "Prone to bacterial infection",
+      "Recurrent bacterial infections",
+      "Recurrent major bacterial infections",
+      "Recurrent pyogenic infections",
+      "Susceptibility to pyogenic infection"
+    ],
+    "xref": [
+      "SNOMEDCT_US:428875002", "UMLS:C1844383", "UMLS:C2748958", "UMLS:C4020846"
+    ],
+    "is_a": [
+      { "id": "HP:0002719" }
+    ]
+  }
+]

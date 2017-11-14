@@ -1,0 +1,61 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "hpo"
+title: Human Phenotype Ontology
+type: object
+project: '*'
+category: ontology
+description: ""
+additionalProperties: false
+
+systemProperties:  # properties to be managed by the system
+
+required:
+  - id
+  - type
+
+uniqueKeys:
+  - [id]
+
+properties:
+  type:
+    enum: [ "hpo" ]
+  id:
+    type: string
+    pattern: "^HP:[0-9]+$"
+    description: "HPO term ID"
+  alt_id:
+    type: array
+    items:
+      type: string
+      pattern: "^HP:[0-9]+$"
+  name:
+    type: string
+  def:
+    type: string
+  comment:
+    type: string
+  synonym:
+    type: array
+    items:
+      type: string
+  xref:
+    type: array
+    items:
+      type: string
+  created_by:
+    type: string
+  creation_date:
+    type: string
+    format: date-time
+  is_a:
+    _link:
+      type: parent
+      target: hpo
+      label: is_a
+    type: array
+    items:
+      type: object
+      properties:
+        id:
+          $ref: hpo#/properties/id

@@ -1,0 +1,87 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+# NOTE: derived from PCGC phenotype data
+id: "genetic_testing_status"
+title: Genetic testing status
+type: object
+project: '*'
+category: clinical
+additionalProperties: false
+
+systemProperties:
+  - id
+
+required:
+  - type
+  - case
+  - project
+
+uniqueKeys:
+  - [id]
+
+properties:
+  type:
+    enum: [ "genetic_testing_status" ]
+  id:
+    $ref: _definitions#/core/properties/id
+  case:
+    _link:
+      type: parent
+      target: case
+    type: object
+    oneOf:
+      - required: [id]
+      - required: [submitter_id]
+    properties:
+      id:
+        $ref: case#/properties/id
+      submitter_id:
+        $ref: case#/properties/submitter_id
+  age_at_genetic_testing-form_completion:
+    type: number
+  karyotype_available:
+    type: boolean
+  karyotype_age:
+    type: number
+  karyotype_source:
+    type: string
+  karyotype_tissue_studies:
+    type: string
+  karyotype_result:
+    type: string
+  maternal_karyotype_available:
+    type: boolean
+  paternal_karyotype_available:
+    type: boolean
+  mosaic:
+    type: boolean
+  microarray_performed:
+    type: boolean
+  age_at_microarray:
+    type: number
+  microarray_type:
+    enum: [ 'SNP' ]
+  microarray_source:
+    enum: [ 'Affymetrix', 'Illumina' ]
+  microarray_tissue:
+    enum: [ 'blood' ]
+  number_of_microarray_probes:
+    type: integer
+  microarray_variant_present:
+    type: boolean
+  fish_performed:
+    type: boolean
+  copy_number_testing_done:
+    type: boolean
+  mutation_testing_done:
+    type: boolean
+  other_genetic_testing_done:
+    type: boolean
+  project:
+    _link:
+      type: parent
+      target: project
+    type: object
+    properties:
+      code:
+        $ref: project#/properties/code
