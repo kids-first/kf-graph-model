@@ -27,8 +27,7 @@ properties:
   alt_id:
     type: array
     items:
-      type: string
-      pattern: "^HP:[0-9]+$"
+      $ref: "#/properties/id"
   name:
     type: string
   def:
@@ -52,10 +51,8 @@ properties:
     _link:
       type: parent
       target: hpo
-      label: is_a
+      label: is_a  # not sure about this
+      reverse_label: includes  # not sure about this
     type: array
     items:
-      type: object
-      properties:
-        id:
-          $ref: hpo#/properties/id
+      $ref: "#/properties/id"

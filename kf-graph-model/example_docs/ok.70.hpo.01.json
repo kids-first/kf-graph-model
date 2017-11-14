@@ -17,9 +17,7 @@
       "Susceptibility to infection"
     ],
     "xref": [ "UMLS:C0239998" ],
-    "is_a": [
-      { "id": "HP:0010978" }
-    ]
+    "is_a": [ "HP:0010978" ]
   },
   {
     "type": "hpo",
@@ -43,8 +41,27 @@
     "xref": [
       "SNOMEDCT_US:428875002", "UMLS:C1844383", "UMLS:C2748958", "UMLS:C4020846"
     ],
-    "is_a": [
-      { "id": "HP:0002719" }
-    ]
+    "is_a": [ "HP:0002719" ]
+  },
+  {
+    "type": "hpo",
+    "id": "HP:0011620",
+    "name": "Abnormality of abdominal situs",
+    "def": "An abnormality of the abdominal situs, i.e., of the sidedness of the abdomen and its organs.",
+    "xref": [
+      "UMLS:C4023266"
+    ],
+    "is_a": [ "HP:0002012", "HP:0030853" ]
+  },
+  {
+    "type": "hpo",
+    "id": "HP:0011994",
+    "name": "Abnormality of the atrial septum",
+    "def": "An abnormality of the interatrial septum.",
+    "synonym": [ "Abnormal interatrial septum morphology" ],
+    "xref": [
+      "SNOMEDCT_US:253363004", "UMLS:C0344722"
+    ],
+    "is_a": [ "HP:0001671" ]
   }
 ]

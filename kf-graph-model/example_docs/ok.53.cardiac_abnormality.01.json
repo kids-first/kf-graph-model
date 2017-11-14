@@ -1,0 +1,18 @@
+{
+    "type": "cardiac_abnormality",
+    "case": {
+        "id": "f355cc10-2bf9-4d7c-ba5a-2b6c3f7841e7"
+    },
+    "project": {
+        "code": "TCGA-ALL"
+    },
+    "abdominal_situs": {
+      "hpo_term": "HP:0011620",
+      "observation": "Abnormal"
+    },
+    "left_atrium": {},
+    "atrial_septum": {
+      "hpo_term": "HP:0011994",
+      "observation": "Abnormal"
+    }
+}

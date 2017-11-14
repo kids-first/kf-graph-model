@@ -1,0 +1,15 @@
+{
+    "type": "genetic_testing_status",
+    "case": {
+        "id": "f355cc10-2bf9-4d7c-ba5a-2b6c3f7841e7"
+    },
+    "age_at_genetic_testing-form_completion": 12,
+    "karyotype_available": true,
+    "karyotype_age": 11,
+    "karyotype_source": "Actual report from lab",
+    "karyotype_tissue_studies": "blood",
+    "karyotype_result": "Normal",
+    "project": {
+        "code": "TCGA-ALL"
+    }
+}

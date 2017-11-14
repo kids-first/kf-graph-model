@@ -1,0 +1,137 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+# NOTE: derived from PCGC phenotype data
+id: "cardiac_abnormality"
+title: Cardiac abnormalities
+type: object
+project: '*'
+category: clinical
+additionalProperties: false
+
+systemProperties:
+  - id
+
+required:
+  - type
+  - case
+  - project
+
+uniqueKeys:
+  - [id]
+
+properties:
+  type:
+    enum: [ "cardiac_abnormality" ]
+  id:
+    $ref: _definitions#/core/properties/id
+  project:
+    _link:
+      type: parent
+      target: project
+    type: object
+    properties:
+      code:
+        $ref: project#/properties/code
+  case:
+    _link:
+      type: parent
+      target: case
+    type: object
+    oneOf:
+      - required: [id]
+      - required: [submitter_id]
+    properties:
+      id:
+        $ref: case#/properties/id
+      submitter_id:
+        $ref: case#/properties/submitter_id
+  # the following properties derived from PCGC: 3b_dbGaP_SubjectPhenotypes_CardiacAbnormalitiesDD
+  source_summary:
+    type: string
+  source_echocardiogram:
+    type: string
+  source_catheterization:
+    type: string
+  source_mri:
+    type: string
+  source_operation_note:
+    type: string
+  source_other_medical_record_note:
+    type: string
+  source_other:
+    type: string
+  source_other_specify:
+    type: string
+  neonatal_presurgical_imaging_available:
+    type: boolean
+  abdominal_situs:
+    # this may seem odd, the way to use this is that only include this field when
+    # the 'case' has been observed 'abnormal', otherwise do not include this field
+    type: object
+    required: [ 'hpo_term', 'observation' ]
+    properties:
+      hpo_term:
+        _link:
+          type: parent
+          target: hpo
+        enum: [ 'HP:0011620' ]
+      observation:
+        enum: [ 'Abnormal' ]
+  atrial_septum:
+    required: [ 'hpo_term', 'observation' ]
+    properties:
+      hpo_term:
+        _link:
+          type: parent
+          target: hpo
+        enum: [ 'HP:0011994' ]
+      observation:
+        enum: [ 'Abnormal' ]
+  cardiac_situs:
+    type: object
+  systemic_vein:
+    type: object
+  hepatic_vein:
+    type: object
+  pulmonary_vein:
+    type: object
+  right_atrium:
+    type: object
+  left_atrium:
+    type: object
+  atrioventricular_junction:
+    type: object
+  tricuspid_valve:
+    type: object
+  mitral_valve:
+    type: object
+  right_ventricle:
+    type: object
+  ventricular_septum:
+    type: object
+  left_ventricle:
+    type: object
+  ventriculoarterial_junction:
+    type: object
+  pulmonary_valve:
+    type: object
+  aortic_valve:
+    type: object
+  coronary_arteries:
+    type: object
+  pulmonary_arteries:
+    type: object
+  aorta:
+    type: object
+  conotruncal_left_sided_lesion:
+    type: object
+  heterotaxy:
+    type: object
+  tetralogy_of_fallot:
+    type: object
+  left_ventricular_outflow_tract_obstruction:
+    type: object
+  atrial_septal_defect:
+    type: object
+  hypoplastic_left_heart_syndrome:
+    type: object
